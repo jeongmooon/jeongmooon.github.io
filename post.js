@@ -51,7 +51,7 @@ const articleHtmlFormat = fs.readFileSync(
 
 //파일이름
 getHtmlFileName = file => {
-    return file.slice(0, file.indexOf(".").toLowCase())
+    return file.slice(0, file.indexOf(".")).toLowerCase()
 }
 
 const deployFiles = [];
@@ -60,7 +60,7 @@ const deployFiles = [];
 const listHtmlFormat  = fs.readFileSync("./templates/list_format.html", "utf-8");
 
 // index.html파일 생성/ 파일목록 렌더
-const listContent = ejs.render(layoutHtmlFormat, {
+const listContent = ejs.render(listHtmlFormat, {
     lists : deployFiles
 });
 const listHtml = ejs.render(layoutHtmlFormat, {
