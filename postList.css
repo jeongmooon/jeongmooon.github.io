@@ -1,0 +1,39 @@
+:root{
+    --text-color: #fff;
+    --background-color: #263343;
+    --accent-color :#d49466;
+}
+
+/* 폰트 */
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Body*/
+.body{
+    font-family: 'IBMPlexSansKR-Regular';
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-family: 'IBMPlexSansKR-Regular';
+}
+
+.content__list {
+    font-size: 30px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.content__list li :hover{
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    box-sizing: border-box;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/highlight.js/styles/a11y-dark.css">
+    <link rel="stylesheet" href="../postList.css">
+    <title>Document</title>
+</head>
+<body>
+    <input class="searchBox" />
+    <input type="button" value="searchButton"/>
+    <div class="content">
+        <div>
+    <h1>WWW(World Wide Web)</h1>
+<ul>
+<li>인터넷에 연결된 컴퓨터를 통해 사람들이 정보를 공유 할 수 있는 정보 공간</li>
+</ul>
+<h2>Web</h2>
+<ul>
+<li>인터넷 통신망 위에서 작동하는 서비스</li>
+<li>1991년 팀 버니스라는 인터넷 공간안에서 문서가 서로 이동할 수 있는 하이퍼링크라는 특수한 기능을 사용</li>
+<li>문서와 문서 사이를 이동할수 있는 개념을 제안, 이것이 바탕으로 WWW를 개발 후 배포</li>
+</ul>
+<h2>HTML(Hypertext Markup Language)</h2>
+<ul>
+<li>하이퍼텍스트는 사용자의 선택에따라 특정 정보화 관련된 부분으로 이동하는 조직화된 문서</li>
+<li>문자를 동적으로 연결</li>
+</ul>
+<h2>PlugIn</h2>
+<ul>
+<li>웹의 발전에 따라 PC에 추가로 설치</li>
+<li>MS의 ActiveX, Adobe Flash등등</li>
+<li>웹사이트에 각종 플러그인이 들어가며 웹이 무거워지고, 이를 막고자 플러그인 없이 각종 기능을 제공하는 HTML5가 생김</li>
+</ul>
+<p>&lt;hr /&gt;</p>
+<h1>HTTP(HyperText Transfer Protocol)</h1>
+<h2>REST(Representional State Transfer)</h2>
+<ul>
+<li>자원(Resource) : URL, 행위(Verb) : HTTP Method, <strong>표현(Representaions)</strong> 로 구성되어 있다.</li>
+<li>REST는 URI를 통해 자원을 표시하고, HTTP Method를 이용해 자원을 규정하여 결과를 받는 것이다</li>
+<li>HTTP Method는 크게 GET, POST, PUT, DELETE가 있으며 CRUD 에서 조회는 GET, 등록은 POST, 수정은 PUT, 삭제는 DELETE를 이용한다.</li>
+</ul>
+<p>GET과 DELETE는 행위가 명확한 편이지만, POST와 PUT은 구분하기위해 멱등성을 알아야한다. <strong>멱등성</strong>이란, 수학에서는 연산을 여러번 적용하더라도 결과가 달라지지 않는 다는 뜻이다. 이 것은 ‘요청의 효과’ 를 보고 판단한다. 서버의 상태는 같은 것을 여러 번 반복하더라도 같은 효과를 가져야 한다. 위에 대표적인 4개의 Method에서 POST를 제외하고 모두 멱등성이 보장되어야 한다. 이는 응답이 다를 수도 있지만, 의도한 효과를 보일 때, 멱등성이 유지되어야 하는걸 의미한다.</p>
+<h2>안전한 메소드란?</h2>
+<ul>
+<li>
+<p>GET,HEAD와 같이 서버측의 상태정보를 변경하지 않는 메소드</p>
+</li>
+<li>
+<p>안전한 메소드와 멱등성을 지키는 메소드는 다르다</p>
+</li>
+<li>
+<p>데이터를 만들 때 POST로 요청하고, 반복 요청하면 데이터는 계속 추가된다.</p>
+</li>
+<li>
+<p>서버는 그때마다 다른응답을 보이고, 다른효과를 가진다(멱등성, 안전함 둘다아님)</p>
+</li>
+<li>
+<p>GET메소드는 요청으로 불러오는 것으로 우리가 수십번을 반복해도 서버의상태가 변하지 않고, 같은 효과다(멱등성,안전함)</p>
+</li>
+<li>
+<p>PUT은 값을 수정하고, 데이터가 없는경우 생성될 수 있다.</p>
+</li>
+<li>
+<p>하지만 서버에 여러번 실행 되더라도 같은 값이 반환된다(안전하지 않지만, 멱등성이다)</p>
+</li>
+<li>
+<p>DELETE도 PUT과 같다</p>
+</li>
+</ul>
+<h2>결론</h2>
+<ul>
+<li>안전한 메소드는 서버의 상태를 아얘변경시키지 않는다.</li>
+<li>멱등성을 가진 메소드는 서버의 상태를 변경시킬 수도 있고, 아닐 수도 있다. 하지만 요청한 사항은 에러가 생기지 않는 이상 요청에 대한 서버 상태는 항상 같다</li>
+</ul>
+<h2>HTTP 상태코드의 의미</h2>
+<ul>
+<li>200번대 성공</li>
+<li>300번대 리아디렉션, 이뜻은 location헤더가 있으면 location 위치로 자동 이동</li>
+<li>400번대 클라이언트가 오류 발생의미(서버문제x)(클라이언트문제o)</li>
+<li>500번대 서버측의 오류가 발생한 것(서버문제o)(클라이언트문제x)</li>
+</ul>
+<p>&lt;hr /&gt;</p>
+<h1>Request &amp; Response</h1>
+<ul>
+<li>
+<p>시작줄 : HTTP요청/ 요청에따른 성공or실패 기록</p>
+</li>
+<li>
+<p>Header : 요청에 대한 설명/ 본문에 대한 설명</p>
+</li>
+<li>
+<p>본문 : 요청과 관련된 데이터/ 응답과 관련된 문서</p>
+</li>
+<li>
+<p>HTTP 메시지의 시작 줄과 HTTP 헤더를 묶어서 요청 헤드(head) 라고 부르며, 이와 반대로 HTTP 메시지의 페이로드는 본문(body) 이라고 한다.</p>
+</li>
+</ul>
+<h2>Request(요청)</h2>
+<ul>
+<li>요청(request)은 클라이언트가 서버로 전달하는 메시지로, 서버 측 액션을 유도한다.(클라이언트 -&gt; 서버)</li>
+<li>startLine에 HTTP method/URL 요청 사항 기입</li>
+<li>Header : body값에 대한 기본설명</li>
+<li>Body : 전달 값</li>
+</ul>
+<h2>Response(응답)</h2>
+<ul>
+<li>응답(response)은 요청에 대한 서버의 답변 이다.</li>
+<li>startLine : HTTP 응답의 시작 줄은 상태 줄(status line)이라고 말한다.(프로토콜버전,상태코드,상태설명)</li>
+<li>Header : 상태 줄에 미처 들어가지 못했던 서버에 대한 추가 정보를 제공한다.(Access-Control-Allow-Origin, Set-Cookie,</li>
+<li>Body :</li>
+</ul>
+<p>&lt;hr /&gt;</p>
+<h1>XML</h1>
+<ul>
+<li>eXtensible Markup Language로 다목적 마크업 언어</li>
+<li>인터넷에 연결된 시스템끼리 데이터를 쉽게주고 받을 수 있게하여 HTML의 한계 극복</li>
+</ul>
+<h1>JSON</h1>
+<ul>
+<li>JavaScript Object National 자바스크립트구조화 데이터</li>
+<li>서버에서 클라이언트로 데이터 전송하거나 반대의 경우에 일반적으로 사용</li>
+</ul>
+<h1>동기 &amp; 비동기</h1>
+<ul>
+<li>동기는 추구하는 같은 행위가 동시에 이루어지고, 비동기는 추구하는 행위가 다를 수도있고, 동시에 이루어지지도 않는다.</li>
+</ul>
+<h2>동기(synchronous)</h2>
+<ul>
+<li>동시에 일어난다. 요청결과가 얼마나 걸리든 요청할때 결과가 주어야함</li>
+</ul>
+<h2>비동기(asynchronus)</h2>
+<ul>
+<li>동시에 일어나지 않는다. 요청한 그 자리에서 결과가 주어지지 않음</li>
+</ul>
+
+</div>
+    </div>
+</body>
+</html>
+

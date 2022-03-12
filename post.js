@@ -85,5 +85,5 @@ const listHtml = ejs.render(layoutHtmlFormat, {
     content: listContent
 })
 
-fs.writeFileSync("./index.html", listHtml);
+fs.writeFileSync("./postList.html", listHtml);
 
