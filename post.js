@@ -57,7 +57,7 @@ getHtmlFileName = file => {
 const deployFiles = [];
 
 //list_format.html 읽기
-const listHtmlFormat  = fs.readFileSync("./templates/list_format.html", "utf-8");
+const listHtmlFormat  = fs.readFileSync("./templates/list_format.html", "utf8");
 
 // index.html파일 생성/ 파일목록 렌더
 const listContent = ejs.render(listHtmlFormat, {
