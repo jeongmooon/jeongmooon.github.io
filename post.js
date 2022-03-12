@@ -59,15 +59,6 @@ const deployFiles = [];
 //list_format.html 읽기
 const listHtmlFormat  = fs.readFileSync("./templates/list_format.html", "utf8");
 
-// index.html파일 생성/ 파일목록 렌더
-const listContent = ejs.render(listHtmlFormat, {
-    lists : deployFiles
-});
-const listHtml = ejs.render(layoutHtmlFormat, {
-    content: listContent
-})
-
-fs.writeFileSync("./index.html", listHtml);
 
 postFiles.map(file => {
     const body = fs.readFileSync(`./posts/${file}`,"utf-8");
@@ -85,4 +76,14 @@ postFiles.map(file => {
     fs.writeFileSync(`./deploy/${fileName}.html`, articleHtml);
     deployFiles.push(fileName);
 });
+
+// index.html파일 생성/ 파일목록 렌더
+const listContent = ejs.render(listHtmlFormat, {
+    lists : deployFiles
+});
+const listHtml = ejs.render(layoutHtmlFormat, {
+    content: listContent
+})
+
+fs.writeFileSync("./index.html", listHtml);
 
