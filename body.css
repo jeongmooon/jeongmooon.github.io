@@ -1,0 +1,84 @@
+:root{
+    --text-color: #fff;
+    --background-color: #263343;
+    --accent-color :#d49466;
+    --font-type:'IBMPlexSansKR-Regular';
+}
+
+/* 폰트 */
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Body*/
+.body{
+    font-family: var(--font-type);
+    margin: 0;
+}
+.mainBody{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.stackBlock{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;  
+}
+
+.stackComponetBlock {
+    font-family: var(--font-type);
+    width: 175px;
+    height: 175px;
+    margin: 0.5rem;
+    border-radius: 5px;
+    position: relative;
+    background-size: cover;
+}
+.stackTitle{
+    position: absolute;
+    border-bottom: 2px solid var(--accent-color);
+    margin: "0 auto";
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: var(--font-type);
+    margin-bottom: 20px;
+}
+
+.stackSubTitle{
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 175px;
+    position: relative;
+}
+
+.right{
+    width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+    .stackBlock{
+        margin: 0 auto;
+        max-width: 1200px;
+        margin-bottom: 100px;
+    }
+
+    .stackComponetBlock{
+        width: 250px;
+        height: 250px;
+    }
+    
+    .stackSubTitle{
+        line-height: 250px;
+    }
+}

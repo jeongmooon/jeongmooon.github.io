@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/node_modules/highlight.js/styles/a11y-dark.css">
+    <!-- 내비바 부분-->
     <link rel="stylesheet" href="/main.css" />
+    <!-- 배너 부분-->
+    <link rel="stylesheet" href="/banner.css" />
+    <!-- Stack 부분-->
+    <link rel="stylesheet" href="/body.css" />
+    <!-- Sample 부분-->
+    <link rel="stylesheet" href="/stackSample.css" />
     <title>Document</title>
 </head>
 <script src="https://kit.fontawesome.com/7b83cd3522.js" crossorigin="anonymous"></script>
 <script src="navbar.js" defer></script>
 <body>
+    <!-- 내비바 부분-->
     <nav class="navbar">
+        <p>
         <div class="navbar__logo">
             <i class="fa-solid fa-bug-slash"></i>
             <a href="">JMBlog</a>
@@ -27,7 +36,79 @@
         <a href="#" class="navbar__toogleBtn">
             <i class="fa-solid fa-bars"></i>
         </a>
+        </p><br />
+        <p>
+            <ul class="navbar__note__sub">
+                <li><a>ALL</a></li>
+                <li><a>HTML/CSS</a></li>
+                <li><a>JavaScript</a></li>
+                <li><a>React</a></li>
+                <li><a>Node</a></li>
+                <li><a>Java</a></li>
+                <li><a>DB</a></li>
+            </ul>
+        </p>
+        
     </nav>
+
+    <!-- 배너 부분-->
+    <div class="BannerBlock">
+        <img class="BannerImg" src="bg_img.jpg">
+    </div>
+
+    <!-- Stack 부분-->
+    <div class="mainBody"> 
+        <div class="stackTitle">FrontEnd</div>
+        <div class="stackBlock">     
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">HTML/CSS</div>
+                </div>
+            </div>
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">JavaScript</div>
+                </div>
+            </div>
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">react</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mainBody"> 
+        <div class="stackTitle">BackEnd</div>
+        <div class="stackBlock">     
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">NodeJs</div>
+                </div>
+            </div>
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">Java</div>
+                </div>
+            </div>
+            <div class="stackImgBlock">
+                <div class="stackComponetBlock">
+                    <img src="" />
+                    <div class="stackSubTitle">DB</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sample 부분-->
+    <div class="stackSample">
+        <div class="left">왼쪽</div>
+        <div class="right">오른쪽채팅</div>
+    </div>
 </body>
 </html>
 

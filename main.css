@@ -77,6 +77,17 @@ a{
     color: var(--accent-color);
 }
 
+.navbar__note__sub{
+    /*display: none;*/
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+}
+
+.navbar__note__sub li{
+    padding: 8px 12px;
+}
+
 @media screen and (max-width : 768px){
     .navbar{
         flex-direction: column;
