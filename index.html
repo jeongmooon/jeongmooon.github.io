@@ -19,27 +19,26 @@
 <script src="navbar.js" defer></script>
 <body>
     <!-- 내비바 부분-->
-    <nav class="navbar">
-        <p>
-        <div class="navbar__logo">
-            <i class="fa-solid fa-bug-slash"></i>
-            <a href="">JMBlog</a>
+    <nav class="navbarBlock">
+        <div class="navbar">
+            <div class="navbar__logo">
+                <i class="fa-solid fa-bug-slash"></i>
+                <a href="">JMBlog</a>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__menu__note"><a href="#">NOTE</a></li>
+                <li><a href="">일상</a></li>
+            </ul>
+            <ul class="navbar__icons">
+                <li><i class="fa-brands fa-github-square"></i></li>
+                <li><i class="fa-brands fa-google"></i></li>
+            </ul>
+            <a href="#" class="navbar__toogleBtn">
+                <i class="fa-solid fa-bars"></i>
+            </a> 
         </div>
-        <ul class="navbar__menu">
-            <li><a href="./postList.html">NOTE</a></li>
-            <li><a href="">일상</a></li>
-        </ul>
-        <ul class="navbar__icons">
-            <li><i class="fa-brands fa-github-square"></i></li>
-            <li><i class="fa-brands fa-google"></i></li>
-        </ul>
-        <a href="#" class="navbar__toogleBtn">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-        </p><br />
-        <p>
             <ul class="navbar__note__sub">
-                <li><a>ALL</a></li>
+                <li><a href="/postList.html">ALL</a></li>
                 <li><a>HTML/CSS</a></li>
                 <li><a>JavaScript</a></li>
                 <li><a>React</a></li>
@@ -47,9 +46,9 @@
                 <li><a>Java</a></li>
                 <li><a>DB</a></li>
             </ul>
-        </p>
-        
+        </div>                          
     </nav>
+    
 
     <!-- 배너 부분-->
     <div class="BannerBlock">
