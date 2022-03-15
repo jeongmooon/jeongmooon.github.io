@@ -13,3 +13,5 @@ toogleBtn.addEventListener('click', ()=>{
 navbarNote.addEventListener('click', ()=>{
     navbarSub.classList.toggle('active');
 })
+
+
