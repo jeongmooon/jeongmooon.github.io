@@ -1,0 +1,35 @@
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(xhttp.readyState == 4 && xhttp.status == 200){
+		jsonfunc(this.responseText); //this = xhttp
+//		jsonfunc(xhttp.responseText); // 둘다 가능
+	}
+}
+xhttp.open("GET",'http://192.168.0.34:8080/Homework01/FindUser?id=test1', true);
+xhttp.send();
+
+function jsonfunc( jsonText ) {
+
+    console.log(xhttp)
+	console.log(xhttp.response);
+
+    let json = xhttp.response.split()
+    console.log(json)
+	let txt = '';
+	// 접근법 1
+    console.log(json)
+	for(i=0; i<json.length; i++){
+		for(key in json[i]){ // key값 가져오기
+			txt += key + ":" + json[i][key]; 
+		}
+		txt += "<br>";
+	}
+    
+	document.getElementById('demo').innerHTML = txt;
+}
+</script>
