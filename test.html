@@ -13,15 +13,48 @@
     <select id="select_day" name="cal"></select>일
     <input type="radio" checked="true" name="lunar calendar" value="양력" />양력 
     <input type="radio" name="lunar calendar" value="음력" />음력 (<input type="radio" name="lunar calendar" />윤달)
-
+    <input id="inputtest" type="text">
+    <script> document.getElementById('inputtest').value = '1'</script>
 
     <select class="text_select" id="education" onchange="education();"></select>
     <select id="childnum" onchange="childnum();"></select>
                         명
-
+    <input id="u_name" type="text">
 </body>
 </html>
 
 
 
+<script type="text/javascript">
 
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function () {
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            jsonfunc(this.responseText);
+        }
+    }
+    xhttp.open("GET",'http://192.168.0.34:8080/Homework01/FindUser?id=test1', true);
+    xhttp.send();
+    
+    function jsonfunc( jsonText ) {
+    
+        console.log(xhttp)
+        console.log(xhttp.response);
+        const json = xhttp.response;
+        console.log(json.adress)
+        console.log(json.split(','))
+        const userInfo = json.split(',')
+        console.log(userInfo);
+    
+        
+        document.getElementById("u_name").value = `${userInfo[0].split('=')[1]}`;
+        document.getElementsByName("childnum").value =userInfo[6].split('=')[1];
+        console.log(ddocument.getElementById("u_name").value);
+        document.getElementsByName("gender").innerHTML = userInfo[1].split('=')[1];
+        document.getElementsByName("cal").innerHTML = userInfo[2].split('=')[1];
+        document.getElementsByName("education").innerHTML = userInfo[3].split('=')[1];
+        document.getElementsByName("job").innerHTML = userInfo[4].split('=')[1];
+        document.getElementsByName("merry").innerHTML = userInfo[5].split('=')[1];        
+    }
+    </script>

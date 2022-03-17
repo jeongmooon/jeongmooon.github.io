@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		:root{
+	--main-color :#9DEB92;
+	--text-color :#444;
+}
+
+/* ?? */
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family : "IBMPlexSansKR-Regular";
+	color : var(--text-color);
+}
+
+a { 	
+	text-decoration: none; 
+	color: black;
+}
+
+
+.membertitle{
+    display: flex;
+    padding: 8px, 12px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--main-color);       
+}
+
+.tablesheet{
+    width: 100%;
+    border: 1px solid var(--text-color);
+    border-collapse: collapse;
+    border-radius: 4px;
+}
+
+.tablesheet th,td{
+    border-bottom: 1px solid var(--text-color);
+    border-left: 1px solid var(--text-color);
+    padding: 10px;
+}
+
+.title{
+	font-weight:bolder; 
+	text-align: center;
+    background-color: var(--main-color);
+}
+
+.text_select{
+    width: 150px;
+    height: 25px;
+}
+
+.member__table{
+    text-align: left;
+}
+
+.table__number{
+    width: 40px;
+}
+
+.btnSet{
+	display: flex;
+	justify-content: space-between;
+}
+
+.adBtnSet{
+	display : flex;
+}
+
+.adBtn{
+    text-align :center;
+	font-weight:bolder; 
+	margin : 0;
+	padding : 0;
+	width:40px;
+	box-shadow: 0 4px 6px -1px;
+	cursor : pointer;
+	margin-left:5px;
+}
+
+.idInput{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setButton {
+	width: 100px;
+	border: none;
+	border-radius: 4px;
+	font-weight: bolder;
+	padding: 1rem 2rem;
+	outline: none;
+	cursor: pointer;
+	margin-top: 1.3rem;
+	background-color: var(--main-color);
+}
+	</style>
+    <meta charset="EUC-KR">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./appendFormTest/test.css" />
+    <script src="./appendFormTest/testOption.js" defer></script>
+    <title>MemberSheet</title>
+</head>
+<body>
+	<!-- ?? ?? ????(css?? ?? ?????) -->
+    <div class="membertitle">
+        <h2>????</h2>
+        <p>???</p>
+    </div>
+    <br />
+    <!-- ?? ?? ????(css?? ?? ?????) -->    
+    
+    <!-- ? ??? ????(css?? ?? ?????) -->
+    <div class="member__table">
+    	<!-- form?? ?? -->
+        <form method="Get" action="http://192.168.0.34:8080/Homework01/FindUser">
+        
+        	<!-- table?? ?? ?? ?? -->
+            <table class="tablesheet">
+                <td class="title">???</td>
+                <tr>
+                    <td colspan="3">
+                        <div class="idInput"><input type="text"  name="id" id="id" /></div>
+                    </td>
+                </tr>
+            </table>
+            <!-- table?? ?? ?? ?? -->
+			
+			<!-- button?? ?? ?? ?? -->
+            <div class="btnSet">
+            	<div>
+            		<button class="setButton" type="button" value="??"><a href='/HomePJ'>??</a></button>
+            	</div>
+            	<div>
+	            	<button class="setButton" type="submit" value="??">??</button>
+	            	<button class="setButton" type="reset" value="??">??</button>
+            	</div>
+            </div>
+            <!-- button?? ?? ?? ?? -->
+        </form>
+        <!-- form?? ?? -->
+    </div>
+    <!-- ? ??? ????(css?? ?? ?????) -->
+</body>
+</html>
+
+
+

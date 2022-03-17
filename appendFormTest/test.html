@@ -1,35 +1,331 @@
-<p id="demo"></p>
-
-<script type="text/javascript">
-
-let xhttp = new XMLHttpRequest();
-
-xhttp.onreadystatechange = function () {
-	if(xhttp.readyState == 4 && xhttp.status == 200){
-		jsonfunc(this.responseText); //this = xhttp
-//		jsonfunc(xhttp.responseText); // 둘다 가능
-	}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		:root{
+	--main-color :#9DEB92;
+	--text-color :#444;
 }
-xhttp.open("GET",'http://192.168.0.34:8080/Homework01/FindUser?id=test1', true);
-xhttp.send();
 
-function jsonfunc( jsonText ) {
+/* 폰트 */
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-    console.log(xhttp)
-	console.log(xhttp.response);
+body {
+	font-family : "IBMPlexSansKR-Regular";
+	color : var(--text-color);
+}
 
-    let json = xhttp.response.split()
-    console.log(json)
-	let txt = '';
-	// 접근법 1
-    console.log(json)
-	for(i=0; i<json.length; i++){
-		for(key in json[i]){ // key값 가져오기
-			txt += key + ":" + json[i][key]; 
-		}
-		txt += "<br>";
-	}
+a { 	
+	text-decoration: none; 
+	color: black;
+}
+
+
+.membertitle{
+    display: flex;
+    padding: 8px, 12px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--main-color);       
+}
+
+.tablesheet{
+    width: 100%;
+    border: 1px solid var(--text-color);
+    border-collapse: collapse;
+    border-radius: 4px;
+}
+
+.tablesheet th,td{
+    border-bottom: 1px solid var(--text-color);
+    border-left: 1px solid var(--text-color);
+    padding: 10px;
+}
+
+.title{
+	font-weight:bolder; 
+	text-align: center;
+    background-color: var(--main-color);
+}
+
+.text_select{
+    width: 150px;
+    height: 25px;
+}
+
+.member__table{
+    text-align: left;
+}
+
+.table__number{
+    width: 40px;
+}
+
+.btnSet{
+	display: flex;
+	justify-content: space-between;
+}
+
+.adBtnSet{
+	display : flex;
+}
+
+.adBtn{
+    text-align :center;
+	font-weight:bolder; 
+	margin : 0;
+	padding : 0;
+	width:40px;
+	box-shadow: 0 4px 6px -1px;
+	cursor : pointer;
+	margin-left:5px;
+}
+
+.addinput{
+	margin-top : 5px;
+	margin-left : 10px;
+	width : 400px;
+}
+
+.setButton {
+	width: 100px;
+	border: none;
+	border-radius: 4px;
+	font-weight: bolder;
+	padding: 1rem 2rem;
+	outline: none;
+	cursor: pointer;
+	margin-top: 1.3rem;
+	background-color: var(--main-color);
+}
+	</style>
+    <meta charset="EUC-KR">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./appendFormTest/test.css" />
+    <script src="./appendFormTest/testOption.js" defer></script>
+    <title>MemberSheet</title>
+</head>
+<body>
+	<!-- 기타 내용 시작부분(css하기 쉽게 블럭지정용) -->
+    <div class="membertitle">
+        <h2>개인정보</h2>
+        <p>도움말</p>
+    </div>
+    <br />
+    <!-- 기타 내용 종료부분(css하기 쉽게 블럭지정용) -->    
     
-	document.getElementById('demo').innerHTML = txt;
+    <!-- 큰 테이블 시작부분(css하기 쉽게 블럭지정용) -->
+    <div class="member__table">
+    	<!-- form태그 시작 -->
+        <form method="Post" action="../AddUser">
+        
+        	<!-- table블럭 세팅 부분 시작 -->
+            <table class="tablesheet">
+            	<tr>
+                    <td class="title">아이디</td>
+                    <td colspan="3"><input type="text"  name="id" id="id" /></td>
+                </tr>
+                <tr>
+                    <td class="title">비밀번호</td>
+                    <td colspan="3"><input type="text"  name="passwd" id="passwd" /></td>
+                </tr>
+                <tr>
+                    <td class="title">이름(한글실명)</td>
+                    <td colspan="3"><input type="text"  name="name" id="name" /></td>
+                </tr>
+
+                <tr>
+                    <td class="title">성별</td>
+                    <td colspan="3"><div id="gender"></div></td>
+                </tr>
+                <tr>
+                    <td class="title">생년월일</td>
+                    <td colspan="3">
+                    	<div id="cal"></div>
+                        <div id="luCal"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">최종학력</td>
+                    <td colspan="3">
+                        <select class="text_select" id="education" name="education"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">직업</td>
+                    <td>
+                        <select class="text_select" name="jobs" id="jobs">
+                        </select>
+                    </td>
+                    <td class="title">소속</td>
+                    <td><input type="text"/></td>
+                </tr>
+                <tr>
+                    <td class="title">결혼여부</td>
+                    <td>
+                    	<div id="merry"></div>
+                    </td>
+                    <td class="title">자녀수</td>
+                    <td>
+                        <select id="childnum" name="childnum"></select>
+                        명
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="3" class="title">연락처</th>            
+                    <td colspan="3">전화번호 
+                        <input type="text" class="table__number" />-<input type="text" class="table__number" />-<input type="text" class="table__number" /> 
+                        <input type="radio" checked="true" name="contactnum" value="집" />집 
+                        <input type="radio" name="contactnum" value="직장" />직장
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">휴대폰 :
+                        <input type="text" id="phone"  name="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">전화번호나 휴대폰번호 2가지 중 하나는 반드시 입력하셔야 합니다.</td>
+                </tr>
+                <tr>
+                    <td class="title">거주지 주소</td>
+                    <td colspan="3">
+	                    <div  class="adBtnSet">
+	                    	<div class="adBtn">국내</div>
+	                    	<div class="adBtn">국외</div>                	
+                    		<input class="addinput" type="text" name="adress" id="adress">
+                    	</div>
+                    </td>
+                </tr>        
+            </table>
+            <!-- table블럭 세팅 부분 종료 -->
+			
+			<!-- button블럭 세팅 부분 시작 -->
+            <div class="btnSet">
+            	<div>
+            		<button class="setButton" type="button" value="뒤로"><a href='/HomePJ'>뒤로</a></button>
+            	</div>
+            	<div>
+	            	<button class="setButton" type="submit" value="전송">전송</button>
+	            	<button class="setButton" type="reset" value="취소">취소</button>
+            	</div>
+            </div>
+            <!-- button블럭 세팅 부분 종료 -->
+        </form>
+        <!-- form태그 종료 -->
+    </div>
+    <!-- 큰 테이블 종료부분(css하기 쉽게 블럭지정용) -->
+</body>
+</html>
+
+
+
+
+
+<script>
+
+// 함수호출
+education();
+// 학력<option>넣기
+// 나중에 Education 배열에 DB에서 받아온 학력테이블 컬럼값 넣으면됨
+function education(){
+    const Education = ["선택하세요","초등학교","중학교","고등학교","전문대학교","인문대학교"];
+    
+    for(let i=0; i<Education.length; i++){
+        document.getElementById('education').options[i] = new Option(Education[i],Education[i]);
+    }
+}
+
+// 함수호출
+childnum();
+// 자녀수<option>넣기
+// 나중에 childnum 배열에 DB에서 받아온 자녀수테이블 컬럼값 넣으면됨
+function childnum(){
+	const childnum =["선택","없음",1,2,3,4,5,6,7,8];
+
+	for(let i=0; i<childnum.length; i++){
+        document.getElementById('childnum').options[i] = new Option(childnum[i],childnum[i]);
+    }
+}
+
+// 함수호출
+jobs();
+// 자녀수<option>넣기
+// 나중에 childnum 배열에 DB에서 받아온 자녀수테이블 컬럼값 넣으면됨
+function jobs(){
+	const jobs =["선택하세요","학생","직장인","주부","공무원"];
+
+	for(let i=0; i<jobs.length; i++){
+        document.getElementById('jobs').options[i] = new Option(jobs[i],jobs[i]);
+    }
 }
 </script>
+
+
+
+<script type="text/javascript">
+	// cookie파싱
+	function getCookie(name) {
+		const nameOfCookie = name + "=";
+		let x = 0;
+
+		while (x <= document.cookie.length) {
+			let y = (x + nameOfCookie.length);
+			if (document.cookie.substring(x, y) == nameOfCookie) {
+				if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
+					endOfCookie = document.cookie.length;
+				return unescape(document.cookie.substring(y, endOfCookie));
+			}
+			x = document.cookie.indexOf(" ", x) + 1;
+			if (x == 0)
+				break;
+		}
+		return "";
+	}
+	const cookie = getCookie('JSESSIONID');
+	if (cookie != "") {
+		console.log(cookie)
+	}
+	
+
+
+	// json 파싱
+	let xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = function () {
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			jsonfunc(this.responseText);
+		}
+	}
+
+	xhttp.open("GET",'http://192.168.0.34:8080/Homework01/FindUser?id=test1', true);
+	xhttp.send();
+	
+	function jsonfunc( jsonText ) {
+		const json = xhttp.response;
+		//console.log(json.split(','))
+		const userInfo = json.split(',')
+		console.log(userInfo);	
+	
+		document.getElementById("id").value = userInfo[0].split('=')[1];
+		document.getElementById("passwd").value = userInfo[1].split('=')[1];
+		document.getElementById("name").value = `${userInfo[2].split('=')[1]}`;
+		document.getElementById("gender").append(`${userInfo[3].split('=')[1]}`);
+		document.getElementById("cal").append(`${userInfo[4].split('=')[1]}`);
+		document.getElementById('luCal').append(userInfo[5].split('=')[1]);
+		document.getElementById("education").value = userInfo[6].split('=')[1];
+		document.getElementById("jobs").value =userInfo[7].split('=')[1];
+		document.getElementById("merry").append(userInfo[8].split('=')[1]);
+		document.getElementById("childnum").value =userInfo[9].split('=')[1];
+		document.getElementById("phone").value =userInfo[11].split('=')[1];
+		document.getElementById("adress").value =userInfo[12].split('=')[1].split(']')[0];
+		
+	}   
+	
+	</script>
