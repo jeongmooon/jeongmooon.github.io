@@ -78,17 +78,17 @@ SQL(Structured Query Language)은 데이터베이스를 관리하기 위해 아�
   SELECT * FROM test_table WHERE idx = 1;
   => test_table 에서 idx가 1인 걸 찾아라
 
-  SELECT * FROM test_table WHERE name = 'sonhs' AND pass = '2222';
-  => test_table에서 name이 'sonhs' 이고 pass가 '2222'인 걸 찾아라
+  SELECT * FROM test_table WHERE name = 'nomaltic' AND pass = '2222';
+  => test_table에서 name이 'nomaltic' 이고 pass가 '2222'인 걸 찾아라
 
-  SELECT * FROM test_table WHERE name = 'sonhs' or pass = '2222';
-  => test_table에서 name이 'sonhs' 이거나 pass가 '2222'인 걸 찾아라
+  SELECT * FROM test_table WHERE name = 'nomaltic' or pass = '2222';
+  => test_table에서 name이 'nomaltic' 이거나 pass가 '2222'인 걸 찾아라
   ```
 
 - **INSERT**: 기존 테이블의 구조를 변경.  
 
   ```sql
-  INSERT INTO test_table (name, score, pass) VALUES ('sohns','100','1234');
+  INSERT INTO test_table (name, score, pass) VALUES ('nomaltic','100','1234');
   ```
 
 - **UPDATE**: 데이터를 수정.
