@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>jeongmooon.github.io</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <h1>Menu</h1>
+    <a href="#" class="menu-link" data-menu="STUDY">STUDY</a>
+    <a href="#" class="menu-link" data-menu="REPORT">REPORT</a>
+    <a href="#" class="menu-link" data-menu="ETC">ETC</a>
+  </div>
+  <div class="main">
+    <div class="menu-top">
+      <div class="sub-menu" id="sub-menu"></div>
+      <div class="detail-menu" id="detail-menu"></div>
+    </div>
+    <button id="toggle-markdown" class="markdown-toggle">📄 내용 보기</button>
+    <div class="markdown-viewer" id="markdown-viewer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

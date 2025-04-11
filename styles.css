@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  background: black;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  font-family: 'Anton', sans-serif;
+}
+
+.menu {
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff0000 60%, #000 60%);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.menu h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.menu a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  padding-left: 25px;
+}
+
+.menu a::before {
+  content: "▶";
+  position: absolute;
+  left: 0px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+  transform: scale(1.1);
+}
+
+.menu a:hover::before,
+.menu a.active::before {
+  opacity: 1;
+}
+
+.main {
+  flex: 1;
+  margin-left: 300px; /* 왼쪽 메뉴 너비 만큼 띄움 */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: auto;
+  position: relative;
+}
+
+
+
+.sub-menu h2, .detail-menu h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sub-menu ul, .detail-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sub-menu li, .detail-menu li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sub-menu li:hover, .detail-menu li:hover {
+  color: #ff4040;
+}
+
+.menu-top {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sub-menu,
+.detail-menu {
+  position: static;
+  width: 200px;
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+  display: block;
+}
+.sub-menu,
+.detail-menu {
+  margin-bottom: 0; /* 제거 또는 무시됨 */
+  margin-right: 0;  /* 제거 또는 무시됨 */
+  display: block;   /* flex 안이므로 inline-block 필요 없음 */
+}
+
+.markdown-viewer {
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  font-size: 18px;
+  padding: 30px;
+  overflow-y: auto;
+  max-height: 60vh;
+  width: 100%;
+  margin-top: 20px; /* 위에 메뉴들과 여백 */
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+
+.markdown-viewer h1,
+.markdown-viewer h2,
+.markdown-viewer h3 {
+  color: white;
+}
+
+.markdown-viewer ul {
+  padding-left: 20px;
+}
+
+.markdown-viewer li {
+  margin-bottom: 6px;
+}
+
+.markdown-viewer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.markdown-viewer th, .markdown-viewer td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #333;
+}
+
+.markdown-viewer th {
+  background-color: #444;
+  color: white;
+}
+
+.markdown-viewer tr:nth-child(even) {
+  background-color: #222;
+}
+
+/* 코드 블록 스타일링 */
+.markdown-viewer pre {
+  background-color: #222;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  overflow: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.markdown-viewer code {
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+}
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://i.imgur.com/pdrA5Ch.png');
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.markdown-toggle {
+  display: none;
+  background: #ff4040;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 기본적으로 마크다운 뷰어는 숨김 */
+.markdown-viewer {
+  display: block; /* 기본적으로 숨김 */
+}
+
+/* 'show' 클래스가 적용되면 마크다운 뷰어가 보임 */
+.markdown-viewer.show {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    margin-left: 0;
+    padding: 100px 20px 20px; /* 상단 메뉴 겹침 방지 */
+  }
+
+  .menu {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    clip-path: none;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: none;
+    z-index: 100;
+  }
+
+  .menu h1 {
+    display: none;
+  }
+
+  .menu a {
+    font-size: 18px;
+    padding-left: 0;
+    margin: 0 10px;
+  }
+
+  .menu a::before {
+    display: none;
+  }
+
+  .menu-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sub-menu,
+  .detail-menu {
+    width: 100%;
+  }
+  .markdown-toggle {
+    display: block;
+  }
+.markdown-viewer {
+  display: block; /* 기본적으로 보임 */
+  width: 100%;    /* 화면의 가로를 꽉 채움 */
+  height: 60vh;   /* 화면의 60%만 차지하도록 설정 */
+  overflow-y: auto; /* 내용이 많으면 스크롤이 생기도록 */
+  margin-top: 20px; /* 위 여백 */
+}
+  .markdown-viewer.show {
+    display: block;
+  }
+  /* 마크다운 뷰어가 보일 때 서브메뉴 숨기기 */
+  .markdown-viewer.show ~ .menu .sub-menu,
+  .markdown-viewer.show ~ .menu .detail-menu {
+    display: none;
+  }
+
+  /* 서브메뉴가 숨겨졌을 때 애니메이션 추가 */
+  .sub-menu.hidden, .detail-menu.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+}
