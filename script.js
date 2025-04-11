@@ -39,7 +39,7 @@ subMenuEl.addEventListener('click', e => {
     const details = menus[menu][sub];
 
     detailMenuEl.innerHTML = `<h2>${sub}</h2><ul>` +
-      details.map(name => `<li data-menu="${menu}" data-sub="${sub}" data-name="${name}" data-path="https://jeongmooon.github.io/markdowns/${menu}/${sub}/${name}.md">${name}</li>`).join('') + '</ul>';
+      details.map(name => `<li data-menu="${menu}" data-sub="${sub}" data-name="${name}" data-path="https://jeongmooon.github.io/markdowns/${menu}/${sub.toLocaleLowerCase()}/${name.toLocaleLowerCase()}.md">${name}</li>`).join('') + '</ul>';
 
     viewer.innerHTML = '';
   }
