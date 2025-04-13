@@ -84,15 +84,7 @@ body {
 }
 
 .main-bottom{
-
-}
-
-.main-bottom-left, .main-bottom-right {
-  flex: 1; /* 요소를 동일한 비율로 나눔 */
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .main {
