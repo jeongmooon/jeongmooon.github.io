@@ -22,6 +22,7 @@ document.querySelectorAll('.menu-link').forEach(link => {
   link.addEventListener('click', () => {
     const menu = link.getAttribute('data-menu');
     const sub = menus[menu];
+    document.querySelector('.main').style.display='flex';
 
     subMenuEl.innerHTML = `<h2>${menu}</h2><ul>` +
       Object.keys(sub).map(key => `<li data-menu="${menu}" data-sub="${key}">${key}</li>`).join('') + '</ul>';
