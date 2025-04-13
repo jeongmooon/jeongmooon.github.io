@@ -17,12 +17,15 @@ const subMenuEl = document.getElementById('sub-menu');
 const detailMenuEl = document.getElementById('detail-menu');
 const viewer = document.getElementById('markdown-viewer');
 const toggleBtn = document.getElementById('toggle-markdown');
+const mainImg = document.querySelector('.main-img');
+const main = document.querySelector('.main');
 
 document.querySelectorAll('.menu-link').forEach(link => {
   link.addEventListener('click', () => {
     const menu = link.getAttribute('data-menu');
     const sub = menus[menu];
-    document.querySelector('.main').style.display='flex';
+    main.style.display='flex';
+    mainImg.style.display = 'none';
 
     subMenuEl.innerHTML = `<h2>${menu}</h2><ul>` +
       Object.keys(sub).map(key => `<li data-menu="${menu}" data-sub="${key}">${key}</li>`).join('') + '</ul>';

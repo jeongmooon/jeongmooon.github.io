@@ -68,6 +68,17 @@ body {
   opacity: 1;
 }
 
+.main-img {
+  flex: 1;
+  margin-left: 300px; /* 왼쪽 메뉴 너비 만큼 띄움 */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: auto;
+  position: relative;
+}
+
 .main {
   flex: 1;
   margin-left: 300px; /* 왼쪽 메뉴 너비 만큼 띄움 */
