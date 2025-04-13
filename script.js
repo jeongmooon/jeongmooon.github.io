@@ -13,12 +13,18 @@ const menus = {
   }
 };
 
+const siteTitle = document.getElementById('site-title');
 const subMenuEl = document.getElementById('sub-menu');
 const detailMenuEl = document.getElementById('detail-menu');
 const viewer = document.getElementById('markdown-viewer');
 const toggleBtn = document.getElementById('toggle-markdown');
 const mainBolg = document.querySelector('.main-blog');
 const main = document.querySelector('.main');
+
+siteTitle.addEventListener('click', e =>{
+  main.style.display='none';
+  mainBolg.style.display = 'flex';
+});
 
 document.querySelectorAll('.menu-link').forEach(link => {
   link.addEventListener('click', () => {
