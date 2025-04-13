@@ -68,7 +68,7 @@ body {
   opacity: 1;
 }
 
-.main-img {
+.main-blog{
   flex: 1;
   margin-left: 300px; /* 왼쪽 메뉴 너비 만큼 띄움 */
   padding: 20px;
@@ -77,6 +77,22 @@ body {
   align-items: flex-start;
   overflow: auto;
   position: relative;
+}
+
+.main-img {
+  height: 50%;
+}
+
+.main-bottom{
+
+}
+
+.main-bottom-left, .main-bottom-right {
+  flex: 1; /* 요소를 동일한 비율로 나눔 */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main {
