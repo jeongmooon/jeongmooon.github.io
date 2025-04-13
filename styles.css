@@ -79,7 +79,16 @@ body {
   position: relative;
 }
 
-.main-img {
+.main-img-container {
+  width: 100%; /* 부모 요소 너비에 맞춤 */
+  max-width: 600px; /* 최대 600px로 제한 */
+  aspect-ratio: 3 / 2; /* 3:2 비율 유지 */
+  overflow: hidden; /* 비율을 벗어나는 이미지 부분 잘라냄 */
+}
+.main-img-container img {
+  width: 100%; /* 컨테이너에 꽉 채우기 */
+  height: 100%; /* 컨테이너에 꽉 채우기 */
+  object-fit: cover; /* 이미지를 적절히 조정해 비율 유지 */
 }
 
 .main-bottom{
