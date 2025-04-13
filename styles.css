@@ -80,7 +80,6 @@ body {
 }
 
 .main-img {
-  height: 50%;
 }
 
 .main-bottom{
@@ -97,8 +96,6 @@ body {
   overflow: auto;
   position: relative;
 }
-
-
 
 .sub-menu h2, .detail-menu h2 {
   font-size: 18px;
