@@ -38,6 +38,21 @@ document.querySelectorAll('.menu-link').forEach(link => {
 
     detailMenuEl.innerHTML = '';
     viewer.innerHTML = '';
+
+    // 화면 크기가 1024px 이하일 때만 동작
+    if (window.innerWidth <= 1024) {
+      // 마크다운 뷰어의 'show' 클래스 토글
+      viewer.classList.remove('show');
+      subMenuEl.classList.remove('hidden');
+      detailMenuEl.classList.remove('hidden');
+      subMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      subMenuEl.style.display = 'block';
+      detailMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      detailMenuEl.style.display = 'block';
+      viewer.style.display = 'none';
+
+      toggleBtn.textContent = viewer.classList.contains('show') ? '📄 내용 숨기기' : '📄 내용 보기';
+    }
   });
 });
 
@@ -61,6 +76,10 @@ detailMenuEl.addEventListener('click', async e => {
 
     try {
       const res = await fetch(path);
+
+      if(res.status !== 200){
+        return viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
+      }
       const text = await res.text();
       viewer.innerHTML = marked.parse(text);
     } catch {
@@ -73,6 +92,8 @@ detailMenuEl.addEventListener('click', async e => {
 toggleBtn.addEventListener('click', () => {
   // 화면 크기가 1024px 이하일 때만 동작
   if (window.innerWidth <= 1024) {
+    //
+    if(viewer.innerHTML === '') return;
     // 마크다운 뷰어의 'show' 클래스 토글
     viewer.classList.toggle('show');
     
@@ -86,7 +107,16 @@ toggleBtn.addEventListener('click', () => {
     // 마크다운 뷰어가 보일 때 서브메뉴 숨기기 애니메이션 추가
     if (viewer.classList.contains('show')) {
       subMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      subMenuEl.style.display = 'none';
       detailMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      detailMenuEl.style.display = 'none';
+      viewer.style.display = 'block';
+    } else {
+      subMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      subMenuEl.style.display = 'block';
+      detailMenuEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      detailMenuEl.style.display = 'block';
+      viewer.style.display = 'none';
     }
   }
 });
