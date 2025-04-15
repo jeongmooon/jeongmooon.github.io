@@ -82,11 +82,47 @@ detailMenuEl.addEventListener('click', async e => {
       }
       const text = await res.text();
       viewer.innerHTML = marked.parse(text);
+      addCopyButtons();
     } catch {
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
     }
   }
 });
+
+function addCopyButtons() {
+  const codeBlocks = viewer.querySelectorAll('pre > code');
+
+  codeBlocks.forEach((codeBlock) => {
+    const pre = codeBlock.parentElement;
+
+    // 이미 버튼이 있는 경우 중복 추가 방지
+    if (pre.querySelector('.copy-btn')) return;
+
+    const button = document.createElement('button');
+    button.className = 'copy-btn';
+    button.innerText = '📋 복사';
+    button.style.position = 'absolute';
+    button.style.top = '8px';
+    button.style.right = '8px';
+    button.style.padding = '4px 8px';
+    button.style.fontSize = '12px';
+    button.style.cursor = 'pointer';
+
+    button.addEventListener('click', () => {
+      navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+        button.innerText = '✅ 복사됨!';
+        setTimeout(() => {
+          button.innerText = '📋 복사';
+        }, 1500);
+      });
+    });
+
+    // pre 태그에 relative 포지션 지정
+    pre.style.position = 'relative';
+    pre.appendChild(button);
+  });
+}
+
 
 // '내용 보기' / '내용 숨기기' 버튼 클릭 시 동작
 toggleBtn.addEventListener('click', () => {
