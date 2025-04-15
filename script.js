@@ -5,7 +5,7 @@ const menus = {
     '3-WEEK': ['']
   },
   REPORT: {
-    'Report1': ['WEB'],
+    'Report1': ['LOGIN'],
     'Report2': ['WEB-DB']
   },
   ETC: {
