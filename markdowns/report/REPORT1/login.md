@@ -159,7 +159,7 @@ spring.mvc.view.suffix=.jsp
 
 #### 로그인 UI
 ![로그인 화면](https://jeongmooon.github.io/img/report/login/loginMain.png)
-- **아이디와 비밀번호 입력**하여 로그인 진행한다.
+- **아이디와 비밀번호 입력**하여 로그인 진행한다. 
 
 #### 로그인 실패 화면
 ![로그인 실패](https://jeongmooon.github.io/img/report/login/loginFail.png)
