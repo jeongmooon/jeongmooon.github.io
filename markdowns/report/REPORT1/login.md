@@ -2,6 +2,8 @@
 
 
 # 웹페이지
+그냥 과제용으로만 웹페이지를 만들면 재미가 떨어지니 최근 흥미있게 하고있는 모바일 게임 림버스컴퍼니의 게임과 관련지어 웹페이지를 만들어 보려고 한다.
+로그인 -> 회원가입 -> 회원가입 시 게임코드 입력 -> 마이페이지에서 보유 캐릭터 체크 -> 메인화면에서는 보유 캐릭 확인 및 도감작 확인
 
 ## 환경 설정
 SpringBoot/MySql/jsp 사용
@@ -45,7 +47,7 @@ spring.mvc.view.suffix=.jsp
 
 ## 로그인 화면 생성
 
-![로그인 화면](https://jeongmooon.github.io/markdowns/img/report/login/로그인 화면.png)
+![로그인 화면](https://jeongmooon.github.io/markdowns/img/report/login/로그인화면.png)
 
 ```login.jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
