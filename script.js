@@ -13,6 +13,16 @@ const menus = {
   }
 };
 
+marked.setOptions({
+  langPrefix: 'language-',
+  highlight: function(code, lang) {
+    if (hljs.getLanguage(lang)) {
+      return hljs.highlight(code, { language: lang }).value;
+    }
+    return hljs.highlightAuto(code).value;
+  }
+});
+
 const siteTitle = document.getElementById('site-title');
 const subMenuEl = document.getElementById('sub-menu');
 const detailMenuEl = document.getElementById('detail-menu');
@@ -81,10 +91,12 @@ detailMenuEl.addEventListener('click', async e => {
         return viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
       }
       const text = await res.text();
-      const processedText = text.replace(/---(.+?)---/g, '<span class="underline">$1</span>').replace(/==(.+?)==/g, '<span class="underline-double">$1</span>');;      
+      const processedText = text.replace(/==(.+?)==/g, '<span class="underline-double">$1</span>');;      
       viewer.innerHTML = marked.parse(processedText);
+      hljs.highlightAll();
       addCopyButtons();
-    } catch {
+    } catch(e) {
+      console.log(e)
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
     }
   }

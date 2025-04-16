@@ -167,7 +167,7 @@ spring.mvc.view.suffix=.jsp
 - 사용자에게 아이디 혹은 비밀번호가 틀렸다고 상세히 알려주는거도 공격자에게 힌트가 되기 때문
 
 ### 로그인 화면 소스
-```jsp
+```html java
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <!--jsp 태그 라이브러리 설정-->
 
