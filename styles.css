@@ -264,6 +264,22 @@ body {
   text-underline-offset: 3px;
 }
 
+.underline-double {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-double::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: red;
+  box-shadow: 0 4px red;
+}
+
 /* 'show' 클래스가 적용되면 마크다운 뷰어가 보임 */
 .markdown-viewer.show {
   display: block;
