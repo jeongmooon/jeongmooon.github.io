@@ -9,7 +9,7 @@ const menus = {
     'REPORT2': ['REGISTER']
   },
   ETC: {
-    'Memo': ['Info']
+    'REPORT': ['TABLE SCHEMA']
   }
 };
 
