@@ -252,7 +252,7 @@ UserCreateRequestValidator 클래스는 파라미터 검증을 수행.
 
 ### 3. 회원가입 화면 소스
 
-#### (1) 회원가입 HTML 화면
+#### (1) 회원가입 HTML 소스
 ```html java
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>

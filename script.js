@@ -1,12 +1,12 @@
 const menus = {
   STUDY: {
     '1-WEEK': ['HTML', 'HTTP','HTTPS','REQUEST&RESPONSE','URL&URI','NAT'],
-    '2-WEEK': ['DATABASE','DBMS','SQL'],
+    '2-WEEK': ['DATABASE','DBMS','SQL','MINI-MISSION'],
     '3-WEEK': ['']
   },
   REPORT: {
     'REPORT1': ['LOGIN'],
-    'REPORT2': ['REGISTER']
+    'REPORT2': ['REGISTER','MAIN']
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
