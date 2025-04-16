@@ -6,7 +6,7 @@ const menus = {
   },
   REPORT: {
     'REPORT1': ['LOGIN'],
-    'REPORT2': ['WEB-DB']
+    'REPORT2': ['REGISTER']
   },
   ETC: {
     'Memo': ['Info']
@@ -81,7 +81,8 @@ detailMenuEl.addEventListener('click', async e => {
         return viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
       }
       const text = await res.text();
-      viewer.innerHTML = marked.parse(text);
+      const processedText = text.replace(/==(.+?)==/g, '<span class="underline">$1</span>');      
+      viewer.innerHTML = marked.parse(processedText);
       addCopyButtons();
     } catch {
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';

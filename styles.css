@@ -258,6 +258,12 @@ body {
   display: block; /* 기본적으로 숨김 */
 }
 
+.underline {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 3px;
+}
+
 /* 'show' 클래스가 적용되면 마크다운 뷰어가 보임 */
 .markdown-viewer.show {
   display: block;
