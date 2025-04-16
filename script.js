@@ -81,7 +81,7 @@ detailMenuEl.addEventListener('click', async e => {
         return viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
       }
       const text = await res.text();
-      const processedText = text.replace(/=(.+?)=/g, '<span class="underline">$1</span>').replace(/==(.+?)==/g, '<span class="underline-double">$1</span>');;      
+      const processedText = text.replace(/---(.+?)---/g, '<span class="underline">$1</span>').replace(/==(.+?)==/g, '<span class="underline-double">$1</span>');;      
       viewer.innerHTML = marked.parse(processedText);
       addCopyButtons();
     } catch {
