@@ -67,7 +67,7 @@ spring.mvc.view.suffix=.jsp
 
 ### 1.AuthController 소스
 
-```AuthController.java
+```java
     @PostMapping("/register")
     public String registerUser(@Valid UserCreateRequest userCreateRequest, Model model, HttpSession session) throws Exception{
         String message = userCreateRequestValidator.validate(userCreateRequest);
@@ -113,7 +113,7 @@ spring.mvc.view.suffix=.jsp
 UserCreateRequestValidator 클래스는 파라미터 검증을 수행.
 회원가입 요청에서 입력된 데이터를 아래 규칙에 맞게 검사하고, 문제가 발생 시 에러 메시지를 반환.
 
-```UserCreateRequestValidator.java
+```java
     public String validate(UserCreateRequest request) {
         Map<String, Supplier<String>> fields = Map.of(
                 "아이디", request::getUserId,
@@ -154,7 +154,7 @@ UserCreateRequestValidator 클래스는 파라미터 검증을 수행.
     - null이 반환되며 데이터는 유효.
 
 ### DBConnection 소스 추가
-```DBConnection.java insert()
+```java insert()
     public int insert(String sql) {
         Connection con = null;
         Statement stmt = null;
@@ -253,7 +253,7 @@ UserCreateRequestValidator 클래스는 파라미터 검증을 수행.
 ### 3. 회원가입 화면 소스
 
 #### (1) 회원가입 HTML 화면
-```register.jsp
+```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -327,7 +327,7 @@ UserCreateRequestValidator 클래스는 파라미터 검증을 수행.
 - **form** 제출 시 모든 유효성 검사를 이 함수로 처리하고, 오류가 생길 시 **alert 함수**로 메세지 표시
 - **비밀번호 일치 여부**는 별도로 체크
 
-```register.js
+```js
 function togglePassword(id) {
     const field = document.getElementById(id);
     if (field.type === 'password') {

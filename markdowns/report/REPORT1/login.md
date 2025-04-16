@@ -71,7 +71,7 @@ spring.mvc.view.suffix=.jsp
 - 반복되는 DB 연결 코드를 줄이기 위해 DBConnection.java 클래스를 구현하여 사용.
 
 ### MainController 소스
-```MainController.java
+```java
     @PostMapping("/login")
     public String authenticateUser(@RequestParam("userId") String userId, @RequestParam("pass") String pass, Model model, HttpSession session) throws Exception{
         Map<String, Object> result = dbConnection.get("SELECT * FROM USER_INFO WHERE USER_ID = '"+userId + "' AND PASS = '"+pass+"'");
@@ -95,7 +95,7 @@ spring.mvc.view.suffix=.jsp
         - 세션(HttpSession)에 **사용자 PK(IDX)**와 **사용자 ID(USER_ID)**를 설정한 뒤, /main 페이지로 리다이렉션 
 
 ### DBConnection 소스
-```DBConnection.java get()
+```java get()
     public Map<String,Object> get(String sql) {
         Connection con = null;
         Statement stmt = null;
@@ -167,7 +167,7 @@ spring.mvc.view.suffix=.jsp
 - 사용자에게 아이디 혹은 비밀번호가 틀렸다고 상세히 알려주는거도 공격자에게 힌트가 되기 때문
 
 ### 로그인 화면 소스
-```login.jsp
+```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <!--jsp 태그 라이브러리 설정-->
 
@@ -215,7 +215,7 @@ spring.mvc.view.suffix=.jsp
 ```
 - 비동기 형태로 아이디 비밀번호를 체크하고 있지 않으니 로그인 실패 시 로그인 페이지 재호출 하고 팝업창을 위한 값을 input태그에 설정
 
-```script.js
+```js
 // 비밀번호 보기 토글
 function togglePassword(inputId) {
   const pwInput = document.getElementById(inputId);
