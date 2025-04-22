@@ -191,7 +191,7 @@ function clickAsync(selector) {
 window.addEventListener('DOMContentLoaded',async function()
 {
   const hashArr = window.location.hash.replace("#","").split(".");
-  if(hashArr.length === 3){
+  if(hashArr.length > 0){
     try {
       await clickAsync(`.menu-link[data-menu="${hashArr[0].toUpperCase()}"]`);
       await clickAsync(`[data-sub="${hashArr[1].toUpperCase()}"]`);
