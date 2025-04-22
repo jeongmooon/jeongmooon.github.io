@@ -2,7 +2,7 @@ const menus = {
   STUDY: {
     '1-WEEK': ['HTML', 'HTTP','HTTPS','REQUEST&RESPONSE','URL&URI','NAT'],
     '2-WEEK': ['DATABASE','DBMS','SQL','MINI-MISSION'],
-    '3-WEEK': ['']
+    '3-WEEK': ['IDENTIFICATION-AUTHENTICATION','COOKIE-SESSION']
   },
   REPORT: {
     'REPORT1': ['LOGIN'],
@@ -95,6 +95,9 @@ detailMenuEl.addEventListener('click', async e => {
       viewer.innerHTML = marked.parse(processedText);
       hljs.highlightAll();
       addCopyButtons();
+
+      const pathNameArr = new URL(path).pathname.split('/');
+      window.location.hash = `${pathNameArr[1]}.${pathNameArr[2]}.${pathNameArr[3]}`;
     } catch(e) {
       console.log(e)
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
