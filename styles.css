@@ -235,15 +235,31 @@ body {
 }
 
 .copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
   background-color: #eee;
   border: none;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, opacity 0.2s;
   margin: 5px;
+  display: none;
+  z-index: 10;
+  opacity: 0;
 }
+
+pre:hover .copy-btn {
+  display: block;
+  opacity: 1;
+}
+
 .copy-btn:hover {
   background-color: #ddd;
 }
+
 
 .markdown-toggle {
   display: none;
@@ -258,9 +274,8 @@ body {
   z-index: 10;
 }
 
-/* 기본적으로 마크다운 뷰어는 숨김 */
 .markdown-viewer {
-  display: block; /* 기본적으로 숨김 */
+  display: block;
 }
 
 .underline {
