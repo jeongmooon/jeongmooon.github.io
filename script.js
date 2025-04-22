@@ -196,7 +196,6 @@ window.addEventListener('DOMContentLoaded',async function()
       await clickAsync(`.menu-link[data-menu="${hashArr[0].toUpperCase()}"]`);
       await clickAsync(`[data-sub="${hashArr[1].toUpperCase()}"]`);
       await clickAsync(`[data-name="${hashArr[2].toUpperCase()}"]`);
-      console.log("모든 클릭 완료!");
     } catch (e) {
       console.error(e);
     }
