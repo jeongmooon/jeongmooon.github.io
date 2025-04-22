@@ -97,7 +97,7 @@ detailMenuEl.addEventListener('click', async e => {
       addCopyButtons();
 
       const pathNameArr = new URL(path).pathname.split('/');
-      window.location.hash = `${pathNameArr[2]}.${pathNameArr[3]}.${pathNameArr[4]}`;
+      window.location.hash = `${pathNameArr[2]}.${pathNameArr[3]}.${pathNameArr[4].split('.')[0]}`;
     } catch(e) {
       console.log(e)
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
