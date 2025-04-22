@@ -48,6 +48,7 @@ document.querySelectorAll('.menu-link').forEach(link => {
       Object.keys(sub).map(key => `<li data-menu="${menu}" data-sub="${key}">${key}</li>`).join('') + '</ul>';
 
     detailMenuEl.innerHTML = '';
+    markdownMenuEl.innerHTML = '';
     viewer.innerHTML = '';
 
     // 화면 크기가 1024px 이하일 때만 동작
