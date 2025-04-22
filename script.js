@@ -173,6 +173,36 @@ toggleBtn.addEventListener('click', () => {
   }
 });
 
+function clickAsync(selector) {
+  return new Promise((resolve, reject) => {
+    const el = document.querySelector(selector);
+    if (!el) return reject(`Element not found: ${selector}`);
+
+    const handler = () => {
+      el.removeEventListener('click', handler);
+      resolve();
+    };
+
+    el.addEventListener('click', handler);
+    el.click();
+  });
+}
+
+window.addEventListener('DOMContentLoaded',async function()
+{
+  const hashArr = window.location.hash.replace("#","").split(".");
+  if(hashArr.length === 3){
+    try {
+      await clickAsync(`.menu-link[data-menu="${hashArr[0].toUpperCase()}"]`);
+      await clickAsync(`[data-sub="${hashArr[1].toUpperCase()}"]`);
+      await clickAsync(`[data-name="${hashArr[2].toUpperCase()}"]`);
+      console.log("모든 클릭 완료!");
+    } catch (e) {
+      console.error(e);
+    }
+  }
+});
+
 // 화면 크기 변경 시 처리
 window.addEventListener('resize', () => {
   if (window.innerWidth > 1024) {
@@ -183,3 +213,4 @@ window.addEventListener('resize', () => {
     toggleBtn.textContent = '📄 내용 보기';
   }
 });
+
