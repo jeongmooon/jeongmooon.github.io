@@ -26,6 +26,7 @@ marked.setOptions({
 const siteTitle = document.getElementById('site-title');
 const subMenuEl = document.getElementById('sub-menu');
 const detailMenuEl = document.getElementById('detail-menu');
+const markdownMenuEl = document.getElementById('markdown-menu');
 const viewer = document.getElementById('markdown-viewer');
 const toggleBtn = document.getElementById('toggle-markdown');
 const mainBolg = document.querySelector('.main-blog');
@@ -68,6 +69,7 @@ document.querySelectorAll('.menu-link').forEach(link => {
 
 subMenuEl.addEventListener('click', e => {
   if (e.target.tagName === 'LI') {
+    markdownMenuEl.innerHTML = '';
     const menu = e.target.getAttribute('data-menu');
     const sub = e.target.getAttribute('data-sub');
 
@@ -93,11 +95,17 @@ detailMenuEl.addEventListener('click', async e => {
       const text = await res.text();
       const processedText = text.replace(/==(.+?)==/g, '<span class="underline-double">$1</span>');;      
       viewer.innerHTML = marked.parse(processedText);
+
+      addHeadingIds();
       hljs.highlightAll();
       addCopyButtons();
 
       const pathNameArr = new URL(path).pathname.split('/');
       window.location.hash = `${pathNameArr[2]}.${pathNameArr[3]}.${pathNameArr[4].split('.')[0]}`;
+
+      markdownMenuEl.innerHTML = `<h2>${pathNameArr[4].split('.')[0].toUpperCase()}</h2><ul>`+
+      [...viewer.querySelectorAll("h2")].map(h2 => `<li onclick="scrollToHeading('${h2.textContent}')">${h2.textContent}</li>`).join('') + '</ul>';
+      
     } catch(e) {
       console.log(e)
       viewer.innerHTML = '<p style="color:red;">❌ 마크다운 로딩 실패</p>';
@@ -137,6 +145,24 @@ function addCopyButtons() {
     pre.style.position = 'relative';
     pre.appendChild(button);
   });
+}
+
+function addHeadingIds() {
+  const headings = viewer.querySelectorAll('h2');
+  headings.forEach(heading => {
+    const text = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+    heading.id = text;
+  });
+}
+
+function scrollToHeading(text) {
+  const targetId = text.trim().toLowerCase().replace(/\s+/g, '-');
+  const targetEl = document.getElementById(targetId);
+  if (targetEl) {
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    alert(`"${text}" 제목을 찾을 수 없습니다.`);
+  }
 }
 
 
@@ -191,7 +217,7 @@ function clickAsync(selector) {
 window.addEventListener('DOMContentLoaded',async function()
 {
   const hashArr = window.location.hash.replace("#","").split(".");
-  if(hashArr.length > 0){
+  if(hashArr.length > 0 && hashArr[0] !== ''){
     try {
       await clickAsync(`.menu-link[data-menu="${hashArr[0].toUpperCase()}"]`);
       await clickAsync(`[data-sub="${hashArr[1].toUpperCase()}"]`);
