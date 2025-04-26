@@ -38,6 +38,7 @@ siteTitle.addEventListener('click', e =>{
   main.style.display='none';
   mainBolg.style.display = 'flex';
   siteTitle = `jeongmooon.github.io`;
+  window.location.hash = '';
 });
 
 document.querySelectorAll('.menu-link').forEach(link => {
