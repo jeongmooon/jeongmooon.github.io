@@ -5,17 +5,16 @@
 과제로는 총 4가지 였지만 추가적으로 몇개를 늘렸다. 5번 이후로는 추가적인 구현 사항이다.<br>
 
 ## Login-Method
-1. [식별/인증 동시](#1-식별인증-동시)
-2. [식별/인증 분리](#2-식별인증-분리)
-3. [식별/해시인증 동시](#3-식별해시인증-동시)
-4. [식별/해시인증 분리](#4-식별해시인증-분리)
-5. [식별/bcryte 해시인증 동시](#5-식별bcryte-해시인증-동시)
-6. [식별/bcryte 해시인증 분리](#6-식별bcryte-해시인증-분리)
-7. [식별/인증 개행 동시](#7-식별인증-개행-동시)
-8. [식별/인증 파라미터 개행 동시](#8-식별인증-파라미터-개행-동시)
-9. [식별/해시인증 개행 동시](#9-식별해시인증-개행-동시)
-10. [식별/bcryte 해시인증 파라미터 개행 동시 후에 JWT](#10-식별bcryte-해시인증-파라미터-개행-동시-후에-jwt)
-
+1. 식별/인증 동시
+2. 식별/인증 분리
+3. 식별/해시인증 동시
+4. 식별/해시인증 분리
+5. 식별/bcryte 해시인증 동시
+6. 식별/bcryte 해시인증 분리
+7. 식별/인증 개행 동시
+8. 식별/인증 파라미터 개행 동시
+9. 식별/해시인증 개행 동시
+10. 식별/bcryte 해시인증 파라미터 개행 동시 후에 JWT
 ---
 
 ## 주요 기능 구상
@@ -107,7 +106,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [1. 식별/인증 동시](#login-method)
+### 1. 식별/인증 동시
 > ID,PASS가 평문으로 동시에 체크하는 로직
 
 ```java
@@ -130,7 +129,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [2. 식별/인증 분리](#login-method)
+### 2. 식별/인증 분리
 > ID,PASS가 평문으로 userId를 통해 식별 후에 조회된 PASS와 pass로 인증을 분리하여 체크하는 로직
 
 ```java
@@ -155,7 +154,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [3. 식별/해시인증 동시](#login-method)
+### 3. 식별/해시인증 동시
 > ID가 평문으로 userId를 통해 식별 후에 조회된 PASS와 해쉬화된 pass로 인증을 분리하여 체크하는 로직
 
 ```java
@@ -178,7 +177,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [4. 식별/해시인증 분리](#login-method)
+### 4. 식별/해시인증 분리
 > ID,PASS가 평문으로 userId를 통해 식별 후에 조회된 PASS와 SHA256 해시화 된 pass로 인증을 분리하여 체크하는 로직
 
 ```java
@@ -203,7 +202,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [5. 식별/bcryte 해시인증 동시](#login-method)
+### 5. 식별/bcryte 해시인증 동시
 > ID는 평문 PASS가 bcryte 암호화로 동시에 체크하는 로직
 
 ```java
@@ -239,7 +238,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [6. 식별/bcryte 해시인증 분리](#login-method)
+### 6. 식별/bcryte 해시인증 분리
 > ID는 평문 PASS가 bcryte 암호화로 분리하여 체크하는 로직
 
 ```java
@@ -271,7 +270,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [7. 식별/인증 개행 동시](#login-method)
+### 7. 식별/인증 개행 동시
 > ID,PASS가 평문으로 동시에 체크하는 로직<br>
 > 동적으로 생성된 query가 중간에 개행이 존재
 
@@ -298,7 +297,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [8. 식별/인증 파라미터 개행 동시](#login-method)
+### 8. 식별/인증 파라미터 개행 동시
 > ID,PASS가 평문으로 동시에 체크하는 로직<br>
 > 동적으로 생성된 query에 파라미터 넣는 부분에 개행을 추가
 
@@ -329,7 +328,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [9. 식별/해시인증 개행 동시](#login-method)
+### 9. 식별/해시인증 개행 동시
 > ID평문, PAS가 SAH256 해쉬로 동시에 체크하는 로직<br>
 > 동적으로 생성된 query가 중간에 개행이 존재
 
@@ -356,7 +355,7 @@ CREATE TABLE USER_TEST_INFO (
 
 ---
 
-### [10. 식별/bcryte 해시인증 파라미터 개행 동시 후에 JWT](#login-method)
+### 10. 식별/bcryte 해시인증 파라미터 개행 동시 후에 JWT
 > ID평문, PASS가 bcryte암호화로 동시에 체크하는 로직<br>
 > 동적으로 생성된 query가 파라미터에 개행이 존재<br>
 > 로그인 이후에 JWT토큰 발행
