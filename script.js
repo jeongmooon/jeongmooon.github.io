@@ -7,8 +7,8 @@ const menus = {
   REPORT: {
     'REPORT1': ['LOGIN'],
     'REPORT2': ['REGISTER','MAIN'],
-    'REPORT3': ['LOGIN-METHOD']
-
+    'REPORT3': ['LOGIN-METHOD'],
+    'REPORT4': ['KEYLOGGER-COOKIE']
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
