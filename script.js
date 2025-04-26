@@ -37,7 +37,7 @@ const main = document.querySelector('.main');
 siteTitle.addEventListener('click', e =>{
   main.style.display='none';
   mainBolg.style.display = 'flex';
-  siteTitle = `jeongmooon.github.io`;
+  document.title = `jeongmooon.github.io`;
   window.location.hash = '';
 });
 
