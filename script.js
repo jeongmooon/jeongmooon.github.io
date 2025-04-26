@@ -6,7 +6,8 @@ const menus = {
   },
   REPORT: {
     'REPORT1': ['LOGIN'],
-    'REPORT2': ['REGISTER','MAIN']
+    'REPORT2': ['REGISTER','MAIN'],
+    'REPORT3': ['LOGIN-METHOD']
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
