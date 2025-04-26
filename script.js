@@ -8,6 +8,7 @@ const menus = {
     'REPORT1': ['LOGIN'],
     'REPORT2': ['REGISTER','MAIN'],
     'REPORT3': ['LOGIN-METHOD']
+
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
@@ -36,6 +37,7 @@ const main = document.querySelector('.main');
 siteTitle.addEventListener('click', e =>{
   main.style.display='none';
   mainBolg.style.display = 'flex';
+  siteTitle = `jeongmooon.github.io`;
 });
 
 document.querySelectorAll('.menu-link').forEach(link => {
@@ -104,6 +106,7 @@ detailMenuEl.addEventListener('click', async e => {
 
       const pathNameArr = new URL(path).pathname.split('/');
       window.location.hash = `${pathNameArr[2]}.${pathNameArr[3]}.${pathNameArr[4].split('.')[0]}`;
+      document.title = `${pathNameArr[2]}.${pathNameArr[3]}.${pathNameArr[4].split('.')[0]}`;
 
       markdownMenuEl.innerHTML = `<h2>${pathNameArr[4].split('.')[0].toUpperCase()}</h2><ul>`+
       [...viewer.querySelectorAll("h2")].map(h2 => `<li onclick="scrollToHeading('${h2.textContent}')">${h2.textContent}</li>`).join('') + '</ul>';

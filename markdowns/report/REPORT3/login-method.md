@@ -234,7 +234,6 @@ CREATE TABLE USER_TEST_INFO (
 > 조회 된 이후에 `parameter`로 받은 pass와 조회된 SALT 값으로 `HashUtil`을 통해 pass를 bcryte암호화 진행<br> 
 > 평문 userId와 암호화된 pass로 `USER_TEST_INFO`테이블을 식별/인증 진행<br>
 > 조회 성공 시에는 `cookie`에 userId를 넣어서 저장함<br>
-> 위험성 : ~~
 
 ---
 
