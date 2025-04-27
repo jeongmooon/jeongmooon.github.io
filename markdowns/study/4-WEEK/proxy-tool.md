@@ -62,13 +62,13 @@
 
 ## Burp Suite 사용
 ### proxy 설정 기본 화면
-![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/brup-proxy.png)
+![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/burp-proxy.png)
 
 ### intercept 설정 화면
-![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/brup-proxy-intercept.png)
+![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/burp-proxy-intercept.png)
 
 ### hist 화면
-![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/brup-proxy-hist.png)
+![Proxy 설정 기본 화면](https://jeongmooon.github.io/img/study/4-WEEK/proxy-tool/burp-proxy-hist.png)
 
 ## 결론
 지금 배우는 강의에서는 **Burp Suite의 커뮤버전**을 사용한다.
