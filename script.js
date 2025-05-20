@@ -11,7 +11,7 @@ const menus = {
     'REPORT2': ['REGISTER','MAIN'],
     'REPORT3': ['LOGIN-METHOD'],
     'REPORT4': ['KEYLOGGER-COOKIE'],
-    'REPORT5': ['REFACTOR','CLOUD-TYPE','YOUTUBE'],
+    'REPORT5': ['REFACTOR','CLOUD-TYPE','YOUTUBE','BOARD'],
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
