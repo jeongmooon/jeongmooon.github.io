@@ -10,7 +10,8 @@ const menus = {
     'REPORT1': ['LOGIN'],
     'REPORT2': ['REGISTER','MAIN'],
     'REPORT3': ['LOGIN-METHOD'],
-    'REPORT4': ['KEYLOGGER-COOKIE']
+    'REPORT4': ['KEYLOGGER-COOKIE'],
+    'REPORT5': ['REFACTOR','CLOUD-TYPE','YOUTUBE'],
   },
   ETC: {
     'REPORT': ['TABLE SCHEMA']
