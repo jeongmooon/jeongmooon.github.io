@@ -75,3 +75,10 @@ graph TD
 > 응답 변화 또는 시간 지연을 기반으로 조건의 참/거짓을 유추하여 **데이터를 하나씩 추출**해 낼 수 있으며, **자동화 도구의 활용과 수동 분석의 병행이 핵심**이다.
 
 > 복잡하고 방어가 잘 된 시스템일수록 이 방식은 더욱 유용하게 사용될 수 있으며, 웹 보안의 핵심 위협 요소 중 하나이다.
+
+## 참고 사이트
+>[NetSPI](https://sqlwiki.netspi.com/injectionTypes/blindBased/#mysql "Blind 기반 SQL 인젝션")
+
+>[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
+
+<hr />

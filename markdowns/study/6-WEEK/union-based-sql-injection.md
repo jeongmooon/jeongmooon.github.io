@@ -132,3 +132,11 @@
 > 빠른 정보 노출이 가능하지만, 쿼리 구조를 정확히 파악하고 컬럼 수와 타입을 맞춰야 성공 가능성이 높아진다.
 
 > 대응을 위해선 **출력 제한**, **쿼리 구조 보호**, **정형 입력만 허용하는 설계**가 필수적이다.
+
+## 참고 사이트
+[NetSPI](https://sqlwiki.netspi.com/injectionTypes/unionBased/#mysql "UNION 기반 SQL 인젝션")
+
+[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
+
+
+<hr />

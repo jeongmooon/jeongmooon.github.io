@@ -88,4 +88,9 @@
 
 > 보안을 강화하려면 **오류 메시지 관리**, **입력값 검증**, 그리고 **Prepared Statement 사용**은 필수적이다.
 
+## 참고 사이트
+[NetSPI](https://sqlwiki.netspi.com/injectionTypes/errorBased/#mysql "Error 기반 SQL 인젝션")
+
+[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
+
 <hr />
