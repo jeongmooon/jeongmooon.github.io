@@ -1,7 +1,9 @@
 
 ## 유니온 기반 SQL 인젝션 (UNION-based SQL Injection)
 
-`UNION-based SQL Injection`은 **SQL의 `UNION` 연산자를 악용하여 원래 쿼리 결과 뒤에 공격자가 만든 쿼리 결과를 덧붙이는 방식**의 공격이다. 결과가 HTTP 응답에 출력될 때, 공격자가 원하는 데이터베이스 내부 정보를 직접 확인할 수 있어 강력한 정보 수집 도구로 쓰인다.
+`UNION-based SQL Injection`은 **SQL의 `UNION` 연산자를 악용하여 원래 쿼리 결과 뒤에 공격자가 만든 쿼리 결과를 덧붙이는 방식**의 공격이다.
+
+ 결과가 HTTP 응답에 출력될 때, 공격자가 원하는 데이터베이스 내부 정보를 직접 확인할 수 있어 강력한 정보 수집 도구로 쓰인다.
 
 ---
 
@@ -134,9 +136,11 @@
 > 대응을 위해선 **출력 제한**, **쿼리 구조 보호**, **정형 입력만 허용하는 설계**가 필수적이다.
 
 ## 참고 사이트
-[NetSPI](https://sqlwiki.netspi.com/injectionTypes/unionBased/#mysql "UNION 기반 SQL 인젝션")
+>[SegaFalut Academy](https://academy.segfaulthub.com/ "nomaltic 해킹 강의")
 
-[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
+>[NetSPI](https://sqlwiki.netspi.com/injectionTypes/unionBased/#mysql "UNION 기반 SQL 인젝션")
+
+>[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
 
 
 <hr />
