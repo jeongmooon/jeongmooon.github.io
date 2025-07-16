@@ -78,6 +78,8 @@ graph TD
 > 복잡하고 방어가 잘 된 시스템일수록 이 방식은 더욱 유용하게 사용될 수 있으며, 웹 보안의 핵심 위협 요소 중 하나이다.
 
 ## 참고 사이트
+>[SegaFalut Academy](https://academy.segfaulthub.com/ "nomaltic 해킹 강의")
+
 >[NetSPI](https://sqlwiki.netspi.com/injectionTypes/blindBased/#mysql "Blind 기반 SQL 인젝션")
 
 >[Oracle](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet "Oracle SQL Injection Cheat Sheet")
